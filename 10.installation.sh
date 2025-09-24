@@ -7,12 +7,20 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+VALIDATE(){
+    if [ $1 -ne 0 ]; then
+        echo "Error :: failed to install $2"
+        exit 1
+    else
+        echo "installing the $2 server"
+fi
+}
 
 dnf install mysql -y
+VALIDATE $? MYSQL
 
-if [ $? -ne 0 ]; then
-    echo "Error :: failed to install mysql"
-    exit 1
-else
-    echo "installing the mysql server"
-fi
+dnf install nginx -y
+VALIDATE $? nginx
+
+dnf install python3 -y
+VALIDATE $? python3
