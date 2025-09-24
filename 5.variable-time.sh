@@ -1,3 +1,10 @@
 #!/bin/bash
-DATE=$(date)
-echo "Time stamp is:$DATE"
+START_TIME=$(date +%s)
+
+SLEEP 10
+
+END_TIME=$(date +%s)
+
+TOTAL_TIME=$(($START_TIME-$END_TIME))
+
+echo "SCRIPT EXECUTED IN :$TOTAL_TIME SECONDS"
