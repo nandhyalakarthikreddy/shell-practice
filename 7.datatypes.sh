@@ -8,3 +8,4 @@ echo "the total sum is: ${sum}"
 
 list=("linux" "karthik" "python" "devops")
 echo "all leaders:${list[@]}"
+echo "all leaders:${list[1]}"
