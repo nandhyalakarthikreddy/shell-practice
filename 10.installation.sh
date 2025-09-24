@@ -7,7 +7,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 
-dnf insatll mysql -y
+dnf install mysql -y
 
 if [ $? -ne 0 ]; then
      echo "Error :: failed to install mysql"
