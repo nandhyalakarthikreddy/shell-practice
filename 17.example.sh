@@ -25,20 +25,25 @@ VALIDATE(){
         echo -e "$G installing $2 server $N" | tee -a $LOG_FILE
 fi
 }
-dnf list installed mysql &>>$LOG_FILE
-if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>$LOG_FILE
-    VALIDATE $? mysql
-else
-    echo -e "Already installed the $2 now $Y skipping $N"
-fi 
 
-dnf list installed nginx &>>$LOG_FILE
-if [ $? -ne 0 ]; then
-    dnf install nginx -y &>>$LOG_FILE
-    VALIDATE $? nginx
+
+for package in $@
+do 
+    dnf list installed $package &>>$LOG_FILE
+    if [ $? -ne 0 ]; then
+    dnf install $package -y &>>$LOG_FILE
+    VALIDATE $? $package
 else
-    echo -e "Already installed the $2 now $Y skipping $N"
+    echo -e "$package Already installed now ...... $Y skipping $N"
 fi 
+done
+
+# dnf list installed nginx &>>$LOG_FILE
+# if [ $? -ne 0 ]; then
+#     dnf install nginx -y &>>$LOG_FILE
+#     VALIDATE $? nginx
+# else
+#     echo -e "Already installed the $2 now $Y skipping $N"
+# fi 
 
 echo -e "$R Given tasks are completed $N"
