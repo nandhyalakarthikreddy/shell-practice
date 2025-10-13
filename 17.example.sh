@@ -10,7 +10,7 @@ FILE_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOG_FOLDER/$FILE_NAME.log"
 mkdir -p $LOG_FOLDER
 
-echo "script started and executed at :  $(date)" | tee -a $LOG_File
+echo "script started and executed at :  $(date)" | tee -a $LOG_FILE
 
 if [ $USERID -ne 0 ]; then
     echo -e " $R Error :: please run the script by using root user $N "
@@ -19,15 +19,15 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$R Error :: Failed to install $2 server $N" | tee -a $LOG_File
+        echo -e "$R Error :: Failed to install $2 server $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$G installing $2 server $N" | tee -a $LOG_File
+        echo -e "$G installing $2 server $N" | tee -a $LOG_FILE
 fi
 }
-dnf list installed mysql &>>$LOG_File
+dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>$LOG_File
+    dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? mysql
 else
     echo -e "Already installed the $2 now $Y skipping $N"
