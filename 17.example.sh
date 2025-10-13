@@ -33,9 +33,9 @@ else
     echo -e "Already installed the $2 now $Y skipping $N"
 fi 
 
-dnf list installed nginx &>>$LOG_File
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y &>>$LOG_File
+    dnf install nginx -y &>>$LOG_FILE
     VALIDATE $? nginx
 else
     echo -e "Already installed the $2 now $Y skipping $N"
