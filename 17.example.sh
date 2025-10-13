@@ -17,3 +17,6 @@ validate(){
 
 dnf install mysql -y
 validate $? mysql
+
+dnf install nginx -y
+validate $? ngnix
