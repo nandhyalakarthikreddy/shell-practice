@@ -7,7 +7,7 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-validate(){
+VALIDATE(){
     if [ $1 -ne 0 ]; then
         echo "Error :: Failed to install $2 server"
     else
@@ -16,7 +16,7 @@ validate(){
 }
 
 dnf install mysql -y
-validate $? mysql
+VALIDATE $? mysql
 
 dnf install nginx -y
-validate $? ngnix
+VALIDATE $? ngnix
