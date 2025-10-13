@@ -12,3 +12,4 @@ if [ $? -ne 0 ]; then
     echo "Fialed to install "
 else 
     echo "successfully installed"
+fi
