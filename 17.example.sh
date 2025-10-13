@@ -23,7 +23,7 @@ VALIDATE(){
         exit 1
     else
         echo -e "$G installing $2 server $N" | tee -a $LOG_File
-    fi
+fi
 }
 dnf list installed mysql &>>$LOG_File
 if [ $? -ne 0 ]; then
