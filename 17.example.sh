@@ -7,9 +7,13 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo "Error :: Failed to install $2 server"
+    else
+        echo "installing $2 server"
+    fi
+}
+
 dnf install mysql -y
-if [ $? -ne 0 ]; then
-    echo "Fialed to install "
-else 
-    echo "successfully installed"
-fi
+validate $? mysql
