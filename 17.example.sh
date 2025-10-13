@@ -40,3 +40,5 @@ if [ $? -ne 0 ]; then
 else
     echo -e "Already installed the $2 now $Y skipping $N"
 fi 
+
+echo -e "$R Given tasks are completed $N"
