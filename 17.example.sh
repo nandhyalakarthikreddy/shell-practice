@@ -15,7 +15,7 @@ VALIDATE(){
         echo -e "$R Error :: Failed to install $2 server $N"
         exit 1
     else
-        echo "$G installing $2 server $N"
+        echo -e "$G installing $2 server $N"
     fi
 }
 
