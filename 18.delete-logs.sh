@@ -16,7 +16,7 @@ if [ ! -d $SOURCE_DIR ]; then
     exit 1
 fi
 
-FILES_TO_DELETED=$(find $SCRIPT_DIR -name "*.log" -type f -mtime 75)
+FILES_TO_DELETED=$(find $SOURCE_DIR -name "*.log" -type f -mtime 75)
 
 while IFS= read -r $filepath
 do
