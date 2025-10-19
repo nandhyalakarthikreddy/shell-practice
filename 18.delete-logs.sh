@@ -10,7 +10,7 @@ LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
 echo " script started executed at : $(date)" | tee -a $LOGS_FILE
 
-SOURCE_DIR=/home/ec2-user/find_practice/logsss
+SOURCE_DIR=/home/ec2-user/find_practice/logs
 if [ ! -d $SOURCE_DIR ]; then
     echo "Error :: Source file path is does not exist"
     exit 1
